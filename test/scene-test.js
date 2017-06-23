@@ -1,17 +1,17 @@
 var GENERATE_SCENES = false, // flag to generate test scenes
-    specdir = process.cwd() + '/spec/',
+    specdir = process.cwd() + '/test/specs-valid/',
     testdir = process.cwd() + '/test/scenegraphs/',
     fs = require('fs'),
     tape = require('tape'),
     vega = require('../'),
-    loader = vega.loader({baseURL: './web/'}),
-    specs = require('./specs.json').filter(function(name) {
+    loader = vega.loader({baseURL: 'test/'}),
+    specs = require('./specs-valid.json').filter(function(name) {
       // remove wordcloud due to random layout
       return name !== 'wordcloud';
     });
 
 // Standardize font metrics to suppress cross-platform variance.
-vega.textMetrics.width = vega.textMetrics.estimateWidth;
+vega.textMetrics.canvas(false);
 
 tape('Vega generates scenegraphs for specifications', function(test) {
   var count = specs.length;

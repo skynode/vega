@@ -1,6 +1,6 @@
 export {
   version
-} from './build/package';
+} from './package.json';
 
 export * from 'vega-statistics';
 
@@ -30,7 +30,9 @@ export {
 
 export {
   scale,
-  scheme
+  scheme,
+  interpolate,
+  interpolateRange
 } from 'vega-scale';
 
 export {
@@ -52,6 +54,7 @@ export {
 
 export {
   parse,
+  expressionFunction,
   formatLocale,
   timeFormatLocale
 } from 'vega-parser';
